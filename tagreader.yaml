@@ -222,9 +222,14 @@ api:
 # Enable OTA upgrade
 ota:
 
-i2c:
-  scan: False
-  frequency: 400kHz
+#i2c:
+#  scan: False
+#  frequency: 400kHz
+
+spi:
+  clk_pin: D5
+  mosi_pin: D7
+  miso_pin: D6
 
 globals:
   - id: source
@@ -234,7 +239,9 @@ globals:
   - id: info
     type: std::string
 
-pn532_i2c:
+pn532_spi:
+  cs_pin: D8
+  update_interval: 1s
   id: pn532_board
   on_tag:
     then:
